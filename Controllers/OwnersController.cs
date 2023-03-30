@@ -41,11 +41,13 @@ namespace DogGo.Controllers
 
         // GET: Owners/Details/5
         public ActionResult Details(int id)
+         //calls/triggers to get the info
         {
             Owner owner = _ownerRepo.GetOwnerById(id);
             List<Dog> dogs = _dogRepo.GetDogsByOwnerId(owner.Id);
             List<Walker> walkers = _walkerRepo.GetWalkersInNeighborhood(owner.NeighborhoodId);
 
+            //now we build it
             ProfileViewModel vm = new ProfileViewModel()
             {
                 Owner = owner,
